@@ -11,8 +11,19 @@ export let Config = class{
 
     constructor(){
         this.serverport = 3010,
-        this.url_pg_nc = ''
-        this.url_sqlserver_nc = ''
+
+        //pg版のURLをポート番号含めて記載
+        this.url_pg_nc = 'http://localhost:3001'
+
+        //sql-server版のURLをポート番号含めて記載
+        this.url_sqlserver_nc = 'http://localhost:3002'
+
+        //テナントごとの振り分け情報
+        this.tenant = {
+            "strategit" : this.url_pg_nc,
+            "strategit2": this.url_pg_nc,
+            "strategit3": this.url_sqlserver_nc,
+        }
         
         this.logs = {        
             appenders: { 
